@@ -1,5 +1,9 @@
+<script setup>
+const layout = ref("default");
+</script>
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <NuxtLayout :name="layout">
+    <NuxtLoadingIndicator />
+    <NuxtPage />
+  </NuxtLayout>
 </template>
