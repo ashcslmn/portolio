@@ -6,7 +6,7 @@ const fetchData = async () => {
   try {
     const response = await $outsoar('/api/projects', {
         params: {
-            authors: [ 'Ashley Solomon' ]
+            author: 'Ashley Solomon'
         }
     })
     return response;
