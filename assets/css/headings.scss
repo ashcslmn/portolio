@@ -1,0 +1,23 @@
+@layer components {
+  .highlight {
+    &.center span::after {
+      @apply left-1/2 -ml-[15px];
+    }
+
+    &.center * {
+      @apply text-center;
+    }
+
+    span {
+      @apply py-1;
+    }
+
+    span::after {
+      content: " ";
+      @apply left-1 absolute bottom-0 block w-[30px] h-1 bg-teal-400;
+      -webkit-transform: skew(20deg);
+      -moz-transform: skew(20deg);
+      -o-transform: skew(20deg);
+    }
+  }
+}

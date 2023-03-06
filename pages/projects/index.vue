@@ -1,7 +1,9 @@
 <script setup>
+import { Skeletor } from "vue-skeletor";
 const { $outsoar } = useNuxtApp();
 const { public: config } = useRuntimeConfig();
-  
+const pending = ref(false);
+
 const fetchData = async () => {
   try {
     const response = await $outsoar('/api/projects', {
@@ -10,8 +12,9 @@ const fetchData = async () => {
         }
     })
     return response;
+    pending.value = false;
   } catch (error) {
-    // console.error(error);
+    console.error(error);
   }
 };
 
@@ -34,6 +37,7 @@ const getImageUrl = (image)  => {
               <h2 class="px-4 text-3xl font-extrabold text-center text-white leading">{{project.title}}</h2>
             </div>
             <template v-if="project.photos">
+              <!-- <Skeletor v-if="pending" width="600" height="300" class="absolute inset-0 object-cover w-full h-full mx-auto shadow-none -z-10 grayscale hover:grayscale-0 blur-[2px]" /> -->
               <nuxt-img :src="getImageUrl(project.photos[0])" align="center" class="absolute inset-0 object-cover w-full h-full mx-auto shadow-none -z-10 grayscale hover:grayscale-0 blur-[2px]" width="600" height="300" />
             </template>
           </div>

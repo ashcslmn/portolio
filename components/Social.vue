@@ -17,5 +17,12 @@
             </div>
         </a>
     </li>
+        <li v-if="social.linkedin">
+        <a href="mailto:ashcslmn@gmail.com" target="_blank">
+            <div class="w-6 h-6">
+                <stack-icon stack="gmail" />
+            </div>
+        </a>
+    </li>
   </ul>
 </template>
