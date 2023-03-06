@@ -1,0 +1,8 @@
+@import "./headings.scss";
+@import "./links.scss";
+@import "./article.scss";
+@import 'vue-skeletor/dist/vue-skeletor.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

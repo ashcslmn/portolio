@@ -14,7 +14,7 @@ const fetchData = async () => {
     response.data.body.children = response.data.body.children.filter(
       (i) => i.tag != "suggested-projects-widget"
     );
-    console.log(response.data.body)
+ 
     return response;
   } catch (error) {
     // console.error(error);

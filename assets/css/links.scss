@@ -1,0 +1,6 @@
+a.router-link-active {
+  @apply text-teal-500;
+  &.cta {
+    @apply text-teal-500;
+  }
+}
