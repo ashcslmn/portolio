@@ -46,7 +46,7 @@ const getImageUrl = (image)  => {
             <div class="line-clamp-3">
               {{ project.description }}
             </div>
-            <button class="ml-auto font-bold text-teal-700 uppercase">Discover</button>
+            <nuxt-link :to="{ path: `/projects/${project.slug}`, query: { _path: project._path }}" class="ml-auto font-bold text-teal-700 uppercase">Discover</nuxt-link>
           </div>
       </div>
     </div>
