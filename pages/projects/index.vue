@@ -62,18 +62,15 @@ onMounted(async () => {
             </div>
         </div>
       </template>
+      <template v-else>
        <div v-for="i in 6" :key="i" class="grid grid-cols-1 border gap-y-4">
             <div class="relative flex md:col-span-2 not-prose h-[300px]">
-              <div class="absolute inset-0 z-0 p-0 bg-teal-900 opacity-70" />
-              <!-- <div class="z-10 flex flex-col m-auto">
-                <h2 class="px-4 text-3xl font-extrabold text-center text-white leading">{{project.title}}</h2>
-              </div> -->
-              <!-- <Skeletor width="600" height="300" class="absolute inset-0 object-cover w-full h-full mx-auto shadow-none -z-10 grayscale hover:grayscale-0" />              -->
+              <div class="absolute inset-0 z-0 p-0 bg-zinc-300 opacity-70" />
             </div>
             <div class="flex flex-col p-4 space-y-8">
               <div class="flex flex-row items-center space-x-4">
                 <div class="w-6 h-6" v-for="stack in 3" :key="stack">
-                    <Skeletor circle class="w-10 h-10" />
+                    <Skeletor circle class="w-6 h-6"/>
                 </div>
               </div>
               <div class="line-clamp-3">
@@ -82,6 +79,7 @@ onMounted(async () => {
               </div>
             </div> 
       </div>
+      </template>
     </div>
 </div>
 </template>
