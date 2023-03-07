@@ -3,29 +3,33 @@ import { Skeletor } from "vue-skeletor";
 
 const { $outsoar } = useNuxtApp();
 const { public: config } = useRuntimeConfig();
-const pending = ref(false);
+const pending = ref(true);
+const author = ref([]);
 
 const fetchData = async () => {
-  pending.value = true;
-
+  let res = [];
   try {
-    const response = await $outsoar("/api/author", {
+    res = await $outsoar("/api/author", {
       params: {
         _path: "/authors/ashley-solomon",
       },
     });
-    pending.value = false;
-    return response;
   } catch (error) {
     console.error(error);
   }
-};
 
-const { data: author } = await fetchData();
+  pending.value = false;
+  return res;
+};
 
 const getImageUrl = (image) => {
   return new URL(image, config.outsoar.assets_url).href;
 };
+
+onMounted(async () => {
+  const { data } = await fetchData();
+  author.value = data;
+});
 </script>
 
 <template>
@@ -40,7 +44,6 @@ const getImageUrl = (image) => {
       height="200"
       width="200"
     />
-
     <Skeletor v-if="pending" class="w-96 md:w-[100px]" />
     <span v-else class="text-gray-600">Kumusta!</span>
 

@@ -9,7 +9,12 @@ const fetchData = async () => {
             _path: '/authors/ashley-solomon/cv'
         }
     })
+  
+    response.data.body.children = response.data.body.children.filter(
+      (i) => i.tag != "author-card"
+    );
     return response;
+    
   } catch (error) {
     // console.error(error);
   }

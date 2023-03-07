@@ -17,7 +17,7 @@ const fetchData = async () => {
  
     return response;
   } catch (error) {
-    // console.error(error);
+    console.error(error);
   }
 };
 
