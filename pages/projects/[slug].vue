@@ -5,7 +5,7 @@ const { public: config } = useRuntimeConfig();
 const route = useRoute();
 const fetchData = async () => {
   try {
-    let response = await $outsoar("/api/project", {
+    let response = await $outsoar(`/api/projects/${route.params.slug}`, {
       params: {
         _path: route.query._path,
       },
